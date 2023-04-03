@@ -1,328 +1,757 @@
 <!DOCTYPE html>
+<!-- saved from url=(0048)http://www.cs.yorku.ca/~kamel/sidd/benchmark.php -->
+<html lang="en" style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<html><head>
-<title>Xiang Chen</title>
+		<title>SIDD</title>
+		<link rel="shortcut icon" href="http://www.cs.yorku.ca/~kamel/sidd/favicon.ico" type="image/ico">
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="css/reset.css"/>  -->
+		<link rel="stylesheet" href="./SIDD_files/styles.css">
 
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="./SIDD_files/scripts.js.下载"></script>
 
-<style type="text/css">
- @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+		<!-- for slider -->
+		<link href="./SIDD_files/css" rel="stylesheet" type="text/css">
 
+		<script src="./SIDD_files/modernizr.js.下载"></script>
+		
+		<!-- table sorting -->
+		<script src="./SIDD_files/sort_table.js.下载"></script>
+		<link href="./SIDD_files/font-awesome.min.css" rel="stylesheet">
+		
+	</head>
 
-	body
-	{
-	font-family:"Roboto",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;font-weight:300;
-    	background-color : #CDCDCD;
-	}
-    	.content
-	{
-    		width : 900px;
-    		padding : 25px 30px;
-    		margin : 25px auto;
-    		background-color : #fff;
-    		box-shadow: 0px 0px 10px #999;
-    		border-radius: 15px; 
-	}	
-	table
-	{
-		padding: 5px;
-	}
-	
-	table.pub_table,td.pub_td1,td.pub_td2
-	{
-		padding: 8px;
-		width: 850px;
-        border-collapse: separate;
-        border-spacing: 15px;
-        margin-top: -5px;
-	}
+	<body onload="sortTable(event, &#39;t01&#39;, 1); sortTable(event, &#39;t02&#39;, 1);"><!-- -->
 
-	td.pub_td1
-	{
-		width:50px;
-	}
-    td.pub_td1 img
-    {
-        height:120px;
-        width: 160px;
-    }
-	
-	div#container
-	{
-		margin-left: auto;
-		margin-right: auto;
-		width: 820px;
-		text-align: left;
-		position: relative;
-		background-color: #FFF;
-	}
-	div#DocInfo
-	{
-		color: #1367a7;
-		height: 158px;
-	}
-	h4,h3,h2,h1
-	{
-		color: #3B3B3B;
-	}
-	h2
-	{
-		font-size:130%;
-	}
-	p
-	{
-		color: #5B5B5B;
-		margin-bottom: 50px;
-	}
-	p.caption
-	{
-		color: #9B9B9B;
-		text-align: left;
-		width: 600px;
-	}
-	p.caption2
-	{
-		color: #9B9B9B;
-		text-align: left;
-		width: 800px;
-	}
-	#header_img
-	{
-		position: absolute;
-		top: 0px; right: 0px;
-    }
-	a:link,a:visited
-	{
-		color: #1367a7;
-		text-decoration: none;
-	}
+		<!--<div w3-include-html="header.html"></div>-->
 
-    #mit_logo {
-        position: absolute;
-        left: 646px;
-        top: 14px;
-        width: 200px;
-        height: 20px;
-    }
-   
-    table.pub_table tr {
-        outline: thin dotted #666666;
-    }
-    .papericon {
-        border-radius: 8px; 
-        -moz-box-shadow: 3px 3px 6px #888;
-        -webkit-box-shadow: 3px 3px 6px #888;
-        box-shadow: 3px 3px 6px #888;
-        width: 180px;
-	margin-top:5px;
-	margin-left:5px;
-	margin-bottom:5px;
-    }
+		<!--#include file="header.html" -->
 
-     .papericon_blank {
+		<!-- HEADER -->
 
-        width: 160px;
-	margin-top:5px;
-	margin-left:5px;
-	margin-bottom:5px;
-    }
+		<div class="head-container">
 
-    .media {
-	outline: thin dotted #666666;
- 	margin-bottom: 15px;	
-	margin-left:10px;
-    }
-    .media-body {
-	margin-top:5px;
-	padding-left:20px;
-    }
+			
+<div class="head-container">
+	<div style="width: 100%; text-align:center;">
+		<h2>Smartphone Image Denoising Dataset</h2>
+		<p>
+		<a href="https://www.eecs.yorku.ca/~kamel/" target="_blank" rel="noopener">Abdelrahman Abdelhamed</a><sup>1</sup>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="https://www.microsoft.com/en-us/research/people/stevelin/" target="_blank" rel="noopener">Stephen Lin</a><sup>2</sup>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="https://www.eecs.yorku.ca/~mbrown/" target="_blank">Michael S. Brown</a><sup>1</sup>
+		</p>
 
-.papers-selected h5, .papers-selected h4 { display : none; }
-.papers-selected .publication { display : none; }
-.paperhi-only { display : none; }
-.papers-selected .paperhi { display : flex; }
-.papers-selected .paperlo { display : none; }
+		<p>
+		<sup>1</sup><a href="http://eecs.lassonde.yorku.ca/" target="_blank" rel="noopener">York University</a>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<sup>2</sup><a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noopener">Microsoft Research</a>
 
-.hidden>div {
-	display:none;
-}
+		</p>
+	</div>
 
-.visible>div {
-	display:block;
-}
-</style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23931362-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<div class="topnav">
+		<a href="http://www.cs.yorku.ca/~kamel/sidd/index.php"><h2>Home</h2></a>
+		<a href="http://www.cs.yorku.ca/~kamel/sidd/dataset.php"><h2>Dataset</h2></a>
+		<!--<a href="code.php"><h2>Code</h2></a>-->
+		<a href="http://www.cs.yorku.ca/~kamel/sidd/benchmark.php"><h2>Benchmark</h2></a>
+		<!--<a href="contact.php"><h2>Contact</h2></a>-->
+	</div>
+</div>
 
-  gtag('config', 'UA-23931362-2');
-</script>
+		</div>
 
-<script type="text/javascript">
-    var myPix = new Array("images/cx.jpg")
-    function choosePic() {
-        var randomNum = Math.floor(Math.random() * myPix.length);
-        document.getElementById("myPicture").src = myPix[randomNum];
-    };
-</script>
+		<!-- /HEADER -->
 
-<script>
-$(document).ready(function() {
-  $('.paperlo button').click(function() {
-     $('.papers-container').addClass('papers-selected');
-  });
-  $('.paperhi button').click(function() {
-     $('.papers-container').removeClass('papers-selected');
-  });
+		<div class="body-container">
 
+			<h1>SIDD Benchmark</h1>
 
-	$('.text_container').addClass("hidden");
+			<div class="entry grey-back">
 
-	$('.text_container').click(function() {
-		var $this = $(this);
-
-		if ($this.hasClass("hidden")) {
-			$(this).removeClass("hidden").addClass("visible");
-			$(this).removeClass("papericon");
-		} else {
-			$(this).removeClass("visible").addClass("hidden");
-		}
-	});
-
-
-});
-</script>
-
-</head>
-
-
-<body>
-<div class="content">
-	<div id="container">
-
-	<table>
-	<tbody><tr>
-	<td><img id="myPicture" src="xxx" style="float:left; padding-right:20px" height="200px"></td>
-	<script>choosePic();</script>
-	<td>
-	<div id="DocInfo">
-		<h1>Xiang Chen (陈翔)</h1>
-                 Ph.D. Candidate<br>
-                 Email: chenxiang@njust.edu.cn<br>
-                 Intelligent Media Analysis Group (IMAG)<br>
-	School of Computer Science and Engineering (CSE)<br>
-	Nanjing University of Science and Technology (NJUST)<br>
-	<a href="https://scholar.google.com/citations?user=vjqtXegAAAAJ&hl=en" target="_blank" rel="external">Google Scholar</a> &bull; <a href="https://github.com/cschenxiang" target="_blank" rel="external">Github</a><br>
-	</div><br>
-	</td>
-	</tr>
-	</tbody></table>
-	<br>
-
-	<h2>About Me</h2>
-    <p style="text-align:justify";>
-I am currently a first-year Ph.D. candidate in the School of Computer Science and Engineering, Nanjing University of Science and Technology, advised by <a href="https://jspan.github.io/", target="_blank">Prof. Jinshan Pan</a>. Before that, I received my M.S. degree from the College of Electronic Information Engineering, Shenyang Aerospace University, advised by Prof. Yufeng Li. My research interests cover computer vision and deep learning, with special emphasis on low-level vision. Specifically, I am dedicated to designing learning algorithms to solve vision problems under adverse weather (e.g., rain/haze removal). If you want to cooperate with me, kindly contact me via email.
+	<i>
+	<p>
+		A new version of SIDD Benchmark (<b>SIDD+</b>) is being hosted as a challenge at the <a target="_blank" href="http://www.vision.ee.ethz.ch/en/ntire20/">New Trends in Image Restoration and Enhancement (NTIRE 2020) workshop</a> in conjunction with <a target="_blank" href="http://cvpr2020.thecvf.com/">CVPR 2020</a>. 
+		<br>
+		The participating solutions and results will be published in the challenge report in the CVPR 2020 Workshop proceedings.
 	</p>
-	
-	<h2>Recent News</h2>
-	<div>
-		<ul>
-	<li>2023.03: I have an invited Talk at <a href="https://mp.weixin.qq.com/s/s-laGFgOqRIuDHW-cK1SuA", target="_blank">CSIG</a>. </li>
-	<li>2023.02: One paper is accepted by CVPR, 2023 (Highlight). </li>			
-	<li>2022.11: One paper is accepted by AAAI, 2023 (Oral). </li>
-	<li>2022.08: I win the Third Prize of <a href="https://mp.weixin.qq.com/s/btPSFAqck-_ABQ0YOTsQKQ", target="_blank">Huawei Terminal Camera Academic Star Competition</a>. </li>
-        <li>2022.08: One paper is accepted by ECCV, 2022. </li>
-        <li>2022.03: One paper is accepted by CVPR, 2022. </li>
-        <li>2021.05: I win the Second Prize of the 1st <a href="https://www.ccf.org.cn/Chapters/Student_Chapters/SYSU/xsfhdt/2021-05-20/729599.shtml", target="_blank">CCF/YEF Outstanding College Student Academic Show</a>. </li>
-		</ul>
-	</div>
-    </ul>
-
-<div class="papers-container papers-selected">
-	<h5 class="paperhi paperhi-only">Selected Publications</h5>
-
-	<div class="publication media paperhi">
-           <div class="media-body">
-			   <a href="https://arxiv.org/abs/2303.11950" target="_blank" rel="external"><strong style="color:darkblue">Learning A Sparse Transformer Network for Effective Image Deraining</strong></a><br>
-            <strong>Xiang Chen</strong>, Hao Li, Mingqiang Li, Jinshan Pan <br>
-           IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2023 <strong style="color:red">(Highlight)</strong> [<a href="https://github.com/cschenxiang/DRSformer">Code</a>]<br>
-	</div></div>
-	
-	<div class="publication media paperhi">
-           <div class="media-body">
-			   <a href="" target="_blank" rel="external"><strong style="color:darkblue">Hybrid CNN-Transformer Feature Fusion for Single Image Deraining</strong></a><br>
-            <strong>Xiang Chen</strong>, Jinshan Pan, Jiyang Lu, Zhentao Fan, Hao Li <br>
-           AAAI Conference on Artificial Intelligence (AAAI), 2023 <strong style="color:red">(Oral Presentation)</strong> [<a href="https://github.com/cschenxiang/HCT-FFN">Code</a>]<br>
-	</div></div>
-    
-	<div class="publication media paperhi">
-           <div class="media-body">
-			   <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Chen_Unpaired_Deep_Image_Deraining_Using_Dual_Contrastive_Learning_CVPR_2022_paper.html" target="_blank" rel="external"><strong style="color:darkblue">Unpaired Deep Image Deraining Using Dual Contrastive Learning</strong></a><br>
-            <strong>Xiang Chen</strong>, Jinshan Pan, Kui Jiang, Yufeng Li, Yufeng Huang, Caihua Kong, Longgang Dai, Zhentao Fan <br>
-           IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 [<a href="https://github.com/cschenxiang/DCD-GAN">Code</a>]<br>
-	</div></div>
-
+	<p>
+		Challenges can be accessed at the following Codalab competitions:
+		<br>
+		<a target="_blank" href="https://competitions.codalab.org/competitions/22230">NTIRE 2020 Real Image Denoising Challenge - Track 1 - rawRGB</a>
+		<br>
+		<a target="_blank" href="https://competitions.codalab.org/competitions/22231">NTIRE 2020 Real Image Denoising Challenge - Track 2 - sRGB</a>
+	</p>
+	<!--
+	<p>
+		The benchmark is currently hosted here on this website.
+	</p>
+	-->
+	</i>
 </div>
 
+			
+			<h2>Download</h2>
 
-</div>
-    <h2>Honors & Awards</h2>
-	<div>
-        <ul>
-  <li>Top-5 on the airplane detection track of 5th International HR Satellite Image Interpretation Competition, 2023</li>
-  <li>First-Class Scholarship of Nanjing University of Science and Technology, 2022</li> 
-  <li>Excellent Master's Thesis of Liaoning Province, 2022</li> 
-  <li>Third Prize of <a href="https://mp.weixin.qq.com/s/btPSFAqck-_ABQ0YOTsQKQ", target="_blank">Huawei Terminal Camera Academic Star Competition</a>, 2022</li> 
-  <li>National Bronze Prize of the 13th "Challenge Cup" College Student Entrepreneurship Planning Competition, 2022</li>
-  <li><a href="https://jyt.ln.gov.cn/jyt/gk/gsgg/1964B0932F014A2FA20D6C33CE20A805/index.shtml", target="_blank">Outstanding College Student Party Member Pacesetter of Liaoning Province</a>, 2022 <strong style="color:red">(10 awardees in total)</strong></li> 
-  <li>Outstanding Graduate of Liaoning Province, 2022</li> 
-  <li>National Bronze Prize of the 8th "Internet+" College Student Innovation and Entrepreneurship Competition, 2022</li>
-  <li>National First Prize of the China iCAN Innovation Competition, 2021</li> 
-  <li>Chinese National Scholarship, 2021</li> 
-  <li>Second Prize of Report of the 1st <a href="http://www.cjig.cn/jig/ch/reader/view_news.aspx?id=20211013092031001", target="_blank">Graduate Academic Forum of Chinese Journal of Image and Graphics</a>, 2021</li> 
-  <li><a href="https://jyt.ln.gov.cn/jyt/gk/gsgg/39AD29F52EBD4FBC829A80BABAC9D65B/index.shtml", target="_blank">Person of the Year, Huayu College Student of Liaoning Province</a>, 2021 <strong style="color:red">(20 awardees in total)</strong></li> 
-  <li>National Bronze Prize of the 7th "Internet+" College Student Innovation and Entrepreneurship Competition, 2021</li> 
-  <li>Second Prize of master group of the 1st <a href="https://www.ccf.org.cn/Chapters/Student_Chapters/SYSU/xsfhdt/2021-05-20/729599.shtml", target="_blank">CCF/YEF Outstanding College Student Academic Show</a>, 2021</li> 
-  <li>National Bronze Prize of the 12th "Challenge Cup" College Student Entrepreneurship Planning Competition, 2020</li> 
-        </ul>    
-	</div>
+			<p>
+				<!--
+				[<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Benchmark_Code_v1.1.zip" target="_blank">Download the SIDD Benchmark Code v1.1 (9 KB)</a></b>]
+				&nbsp; MD5: c2d8ea51ca20cbecef73cff519aeb080 &nbsp; SHA1: e99b0b162a55e8114e9b812ca53228f3c12308b7
+				-->
+				<b>SIDD Benchmark Code v1.2</b> (9 KB) 
+				[
+					<b><a href="https://competitions.codalab.org/my/datasets/download/5e155184-78f6-4740-9877-59122e975d92" target="_blank">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Benchmark_Code_v1.2.zip" target="_blank">Mirror 2</a></b> | 
+					<b><a href="https://mega.nz/#!9RNxmQZI!m4vTnlmw615TFdt60lvLVVUAtoi1geYKhXCs3sKycuU" target="_blank">Mirror 3</a></b> | 
+					<b><a href="https://ln.sync.com/dl/03aca52d0/ctqu3zfr-55p7hhde-vmssu3j5-jzx7hqfg" target="_blank">Mirror 4</a></b>
+				]
+			</p>
 
-	<h2>Professional Services</h2>
-	<div>
-		<ul>
-			<li>
-				<b>Journal Reviewer</b>: </br>
-				&emsp; • IEEE Transactions on Neural Networks and Learning Systems (TNNLS) </br>
-				&emsp; • IEEE Transactions on Circuits and Systems for Video Technology (TCSVT) </br>
-				&emsp; • Pattern Recognition (PR) </br>
-                                &emsp; • The Visual Computer (TVCJ) </br>
-			</li>
-			<li>   
-				<b>Conference Reviewer / Program Committee Member</b>: </br>
-				&emsp; • IEEE Conference on Computer Vision and Pattern Recognition (CVPR): 2022-2023 </br>
-                                &emsp; • International Conference on Computer Vision (ICCV): 2023 </br>
-				&emsp; • European Conference on Computer Vision (ECCV): 2022 </br>
-				&emsp; • AAAI Conference on Artificial Intelligence (AAAI): 2023 </br>
-				&emsp; • International Joint Conference on Artificial Intelligence (IJCAI): 2023 </br>
-				&emsp; • ACM International Conference on Multimedia (ACM MM): 2022 </br>
-                                &emsp; • Medical Image Computing and Computer-Assisted Intervention (MICCAI): 2023 </br>
-				&emsp; • Asian Conference on Computer Vision (ACCV): 2022 </br>
-				&emsp; • IEEE Winter Conference on Applications of Computer Vision (WACV): 2023 </br>	
-			</li>
-		</ul>
-	</div>
+			
+			<p>
+				<b>SIDD Benchmark Data</b> as single .mat arrays of dimensoins [#images, #blocks, height, width, #channels]:
+				<br>
+				Noisy raw-RGB data: [
+					<b><a href="https://competitions.codalab.org/my/datasets/download/7a9badd9-fffc-4e56-ba41-0c5e2a76e58a" target="_blank" rel="noopener">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Blocks/BenchmarkNoisyBlocksRaw.mat" target="_blank" rel="noopener">Mirror 2</a></b>
+					]
+				<br>
+				Noisy sRGB data: [
+					<b><a href="https://competitions.codalab.org/my/datasets/download/0d8a1e68-155d-4301-a8cd-9b829030d719" target="_blank" rel="noopener">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Blocks/BenchmarkNoisyBlocksSrgb.mat" target="_blank" rel="noopener">Mirror 2</a></b>
+					]
+				<br>
+			</p>
+			
+			<p>
+				<b>SIDD Validation Data and Ground Truth</b> as single .mat arrays of dimensoins [#images, #blocks, height, width, #channels]:
+				<br>
+				Noisy raw-RGB data: [
+					<b><a href="https://competitions.codalab.org/my/datasets/download/549374a5-5e7d-4daf-a977-993187b2d050" target="_blank" rel="noopener">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Blocks/ValidationNoisyBlocksRaw.mat" target="_blank" rel="noopener">Mirror 2</a></b>
+					]
+				<br>
+				Noisy sRGB data: [
+					<b><a href="https://competitions.codalab.org/my/datasets/download/260ed944-21e7-4317-bd66-a6dd42343838" target="_blank" rel="noopener">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Blocks/ValidationNoisyBlocksSrgb.mat" target="_blank" rel="noopener">Mirror 2</a></b>
+					]
+				<br>
+				Ground-truth raw-RGB data: [
+					<b><a href="https://competitions.codalab.org/my/datasets/download/6d90a38a-6d6d-4dff-a3ab-413f5208b7bd" target="_blank" rel="noopener">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Blocks/ValidationGtBlocksRaw.mat" target="_blank" rel="noopener">Mirror 2</a></b>
+					]
+				<br>
+				Ground-truth sRGB data: [
+					<b><a href="https://competitions.codalab.org/my/datasets/download/5349efe0-dfa2-499e-a46f-49c623285ba7" target="_blank" rel="noopener">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Blocks/ValidationGtBlocksSrgb.mat" target="_blank" rel="noopener">Mirror 2</a></b>
+					]
+				<br>
+			</p>
+			
+			
+			<p>
+				<b>SIDD Benchmark Data</b> (full-frame images, 1.84 GB) 
+				[
+					<b><a href="https://competitions.codalab.org/my/datasets/download/45386094-eaff-43a4-989b-073541f9867e" target="_blank">Mirror 1</a></b> | 
+					<b><a href="ftp://sidd_user:sidd_2018@130.63.97.225/SIDD_Benchmark_Data.zip" target="_blank">Mirror 2</a></b> | 
+					<b><a href="https://mega.nz/#!gQ9iBARQ!l_8afm2Qetx61RUhW8kE_qtd6RlMpfkdTMer3xKrl9Q" target="_blank">Mirror 3</a></b> | 
+					<b><a href="https://ln.sync.com/dl/9a7e12900/z7vtztvg-t645euaw-de36sizb-bericid7" target="_blank">Mirror 4</a></b>
+				]
+				<br>
+				MD5: decd113eaf99a8dbd1dbb7f7c9dafedd &nbsp; SHA1: b8092d990139f41b6da97b4afa679a2876de53bd
+			</p>
+			
+			<h2>Description</h2>
+			
+			
 
-	<h2>Collaborators</h2>
-		<ul>
-			<li>NJUST: <a href="http://house-leo.github.io/" target="_blank" rel="external">Hao Li</a>, Pengpeng Li</li>
-			<li>WHU: <a href="https://scholar.google.com/citations?user=AbOLE9QAAAAJ&hl=en" target="_blank" rel="external">Dr. Kui Jiang</a></li>
-		</ul>
+			<p>The SIDD Benchmark consists of <b>40 images</b> representing 40 scene instances. These images can be used to benchmark denoising methods.</p>
 
-	</div>
-     </div>  
+			<p>For each image, the following is provided in one directory:</p>
+
+			<p>
+			</p><ol>
+				<li>Noisy Raw-RGB image (.MAT). Black Level subtracted, normalized to [0, 1].</li>
+					
+				<li>Noisy sRGB image (.PNG). Gamma corrected, without any tone mapping.</li>
+					
+				<li>Metadata extracted from the DNG file (.MAT). For example, black and saturation levels, as-shot neutral, noise level function, etc.</li>
+					
+			</ol>
+			<p></p>
+
+			<p>
+			The PSNR and SSIM values are calculated only on 32 blocks of size 256 by 256 pixels.
+			The block positions are provided in a file named "BenchmarkBlocks32.mat".
+			</p>
+
+
+
+			
+			<p>Follow the instructions in the <b>Code_v/_ReadMe.txt</b> file to
+				</p><ul>
+					<li>demonstrate the code, </li>
+					<li>run your own denoising method on the benchmark, and/or </li>
+					<li><b>submit</b> your results for evaluation.</li>
+				</ul>
+			<p></p>
+
+			
+			
+			
+			
+			<h1>Upload your results</h1>
+			
+			<a href="http://130.63.97.225/sidd/benchmark_submit.php" class="button">Click here to submit your results</a>
+			
+			
+
+
+
+
+			<h1>Benchmark Results</h1>
+
+			<p>
+			Results of the NTIRE 2019 Challenge on Real Image Denoising can be found in 
+			<a href="http://openaccess.thecvf.com/content_CVPRW_2019/papers/NTIRE/Abdelhamed_NTIRE_2019_Challenge_on_Real_Image_Denoising_Methods_and_Results_CVPRW_2019_paper.pdf" target="_blank" rel="noopener"><b>this paper</b></a>.
+			</p>
+			
+			<p>
+			The following tables show the benchmark results published in <a href="http://www.cs.yorku.ca/~kamel/sidd/files/SIDD_CVPR_2018.pdf" target="_blank"><b>the paper</b></a>.
+			</p>
+
+
+			<h2>Results of denoising in raw-RGB space</h2>
+
+			<table id="t01" class="sortable">
+			<tbody>
+
+			<tr>
+			<th class="sortable" rowspan="3" onclick="sortTable(event, &#39;t01&#39;, 0)">Method</th>
+			<th style="text-align: center;" colspan="2">PSNR</th>
+			<th style="text-align: center;" colspan="2">SSIM</th>
+			<th style="text-align: center;" colspan="1">Time</th>
+			</tr>
+
+			<tr>
+			<th style="text-align: center;" colspan="2">(Applied on/Evaluated on)</th>
+			<th style="text-align: center;" colspan="2">(Applied on/Evaluated on)</th>
+			<th style="text-align: center;" colspan="1">(seconds)</th>
+			</tr>
+
+			<tr>
+			<th class="sortable desc" onclick="sortTable(event, &#39;t01&#39;, 1)">Raw/Raw</th>
+			<th class="sortable" onclick="sortTable(event, &#39;t01&#39;, 2)">Raw/sRGB</th>
+			<th class="sortable" onclick="sortTable(event, &#39;t01&#39;, 3)">Raw/Raw</th>
+			<th class="sortable" onclick="sortTable(event, &#39;t01&#39;, 4)">Raw/sRGB</th>
+			<th class="sortable" onclick="sortTable(event, &#39;t01&#39;, 5)">Raw</th>
+			</tr>
+
+						<tr>
+				<td>KirinCV-A</td>
+				<td>52.16</td>
+				<td>39.740</td>
+				<td>0.99</td>
+				<td>0.958</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>KirinCV-B</td>
+				<td>52.12</td>
+				<td>39.720</td>
+				<td>0.99</td>
+				<td>0.958</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>RDUNet</td>
+				<td>51.96</td>
+				<td>39.520</td>
+				<td>0.99</td>
+				<td>0.957</td>
+				<td>16.45</td>
+			</tr><tr>
+				<td>BOE-IOT-AIBD</td>
+				<td>51.87</td>
+				<td>39.480</td>
+				<td>0.99</td>
+				<td>0.956</td>
+				<td>15.91</td>
+			</tr><tr>
+				<td>BOE-IOT-AIBD</td>
+				<td>51.87</td>
+				<td>39.480</td>
+				<td>0.99</td>
+				<td>0.956</td>
+				<td>15.91</td>
+			</tr><tr>
+				<td>AAC_TECHNOLOGIES</td>
+				<td>51.71</td>
+				<td>39.300</td>
+				<td>0.99</td>
+				<td>0.955</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>BOE-IOT-AIBD</td>
+				<td>51.56</td>
+				<td>39.010</td>
+				<td>0.99</td>
+				<td>0.952</td>
+				<td>0.40</td>
+			</tr><tr>
+				<td>test_e</td>
+				<td>51.43</td>
+				<td>38.830</td>
+				<td>0.99</td>
+				<td>0.952</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>approx_raw</td>
+				<td>51.00</td>
+				<td>38.230</td>
+				<td>0.99</td>
+				<td>0.944</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>b2ub</td>
+				<td>50.81</td>
+				<td>38.000</td>
+				<td>0.99</td>
+				<td>0.943</td>
+				<td>0.88</td>
+			</tr><tr>
+				<td>myrawbench</td>
+				<td>49.89</td>
+				<td>36.460</td>
+				<td>0.99</td>
+				<td>0.929</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>MLRI+1.5CBM3D (VST)</td>
+				<td>49.48</td>
+				<td>36.060</td>
+				<td>0.99</td>
+				<td>0.922</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>MLRI+1.5CBM3D</td>
+				<td>49.43</td>
+				<td>36.060</td>
+				<td>0.99</td>
+				<td>0.922</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>Bitonic MX</td>
+				<td>49.41</td>
+				<td>37.250</td>
+				<td>0.99</td>
+				<td>0.934</td>
+				<td>8.91</td>
+			</tr><tr>
+				<td>HWD</td>
+				<td>48.97</td>
+				<td>35.290</td>
+				<td>0.99</td>
+				<td>0.903</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>HWD_combine</td>
+				<td>48.94</td>
+				<td>35.400</td>
+				<td>0.99</td>
+				<td>0.896</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>MCU-Net</td>
+				<td>48.80</td>
+				<td>36.540</td>
+				<td>0.99</td>
+				<td>0.875</td>
+				<td>158.84</td>
+			</tr><tr>
+				<td>RCNN+1.5CBM3D (VST)</td>
+				<td>48.56</td>
+				<td>35.510</td>
+				<td>0.98</td>
+				<td>0.914</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>MLRI+1.5CBM3D</td>
+				<td>48.45</td>
+				<td>35.310</td>
+				<td>0.99</td>
+				<td>0.912</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>RCNN+1.5CBM3D</td>
+				<td>48.36</td>
+				<td>35.240</td>
+				<td>0.99</td>
+				<td>0.906</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>aRID</td>
+				<td>48.05</td>
+				<td>35.780</td>
+				<td>0.98</td>
+				<td>0.902</td>
+				<td>23.36</td>
+			</tr><tr>
+				<td>CycleISP-public-weights</td>
+				<td>47.98</td>
+				<td>35.020</td>
+				<td>0.95</td>
+				<td>0.846</td>
+				<td>0.20</td>
+			</tr><tr>
+				<td>Resnet_Denoise_real</td>
+				<td>47.72</td>
+				<td>34.970</td>
+				<td>0.98</td>
+				<td>0.901</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>DnCNN_Denoise_ours</td>
+				<td>47.65</td>
+				<td>34.500</td>
+				<td>0.98</td>
+				<td>0.892</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>Downsample2Denoise</td>
+				<td>47.37</td>
+				<td>34.860</td>
+				<td>0.98</td>
+				<td>0.912</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>DnCNN_Denoise_real</td>
+				<td>47.35</td>
+				<td>34.040</td>
+				<td>0.98</td>
+				<td>0.885</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>BM3D</td>
+				<td>45.52</td>
+				<td>30.95</td>
+				<td>0.980</td>
+				<td>0.863</td>
+				<td>      34.3</td>
+			</tr><tr>
+				<td>WNNM</td>
+				<td>44.85</td>
+				<td>29.54</td>
+				<td>0.975</td>
+				<td>0.888</td>
+				<td>    1975.8</td>
+			</tr><tr>
+				<td>NLM</td>
+				<td>44.06</td>
+				<td>29.39</td>
+				<td>0.971</td>
+				<td>0.846</td>
+				<td>     210.7</td>
+			</tr><tr>
+				<td>DnCNN</td>
+				<td>43.30</td>
+				<td>28.24</td>
+				<td>0.965</td>
+				<td>0.829</td>
+				<td>      51.7</td>
+			</tr><tr>
+				<td>KSVD</td>
+				<td>43.26</td>
+				<td>27.41</td>
+				<td>0.969</td>
+				<td>0.832</td>
+				<td>    2243.9</td>
+			</tr><tr>
+				<td>MLP</td>
+				<td>43.17</td>
+				<td>27.52</td>
+				<td>0.965</td>
+				<td>0.788</td>
+				<td>     131.2</td>
+			</tr><tr>
+				<td>FoE</td>
+				<td>43.13</td>
+				<td>27.18</td>
+				<td>0.969</td>
+				<td>0.812</td>
+				<td>    6097.2</td>
+			</tr><tr>
+				<td>LPG-PCA</td>
+				<td>42.79</td>
+				<td>30.01</td>
+				<td>0.974</td>
+				<td>0.854</td>
+				<td>     438.1</td>
+			</tr><tr>
+				<td>TNRD</td>
+				<td>42.77</td>
+				<td>26.99</td>
+				<td>0.945</td>
+				<td>0.744</td>
+				<td>      15.2</td>
+			</tr><tr>
+				<td>KSVD-DCT</td>
+				<td>42.70</td>
+				<td>28.21</td>
+				<td>0.970</td>
+				<td>0.784</td>
+				<td>     133.3</td>
+			</tr><tr>
+				<td>KSVD-G</td>
+				<td>42.50</td>
+				<td>28.13</td>
+				<td>0.969</td>
+				<td>0.781</td>
+				<td>     153.6</td>
+			</tr><tr>
+				<td>GLIDE</td>
+				<td>41.87</td>
+				<td>25.98</td>
+				<td>0.949</td>
+				<td>0.816</td>
+				<td>   12440.5</td>
+			</tr><tr>
+				<td>EPLL</td>
+				<td>40.73</td>
+				<td>25.19</td>
+				<td>0.935</td>
+				<td>0.842</td>
+				<td>     653.1</td>
+			</tr><tr>
+				<td>Benchmark01</td>
+				<td>40.48</td>
+				<td>26.940</td>
+				<td>0.91</td>
+				<td>0.623</td>
+				<td>0.07</td>
+			</tr><tr>
+				<td>Noise</td>
+				<td>36.75</td>
+				<td>23.680</td>
+				<td>0.84</td>
+				<td>0.480</td>
+				<td>23.36</td>
+			</tr><tr>
+				<td>Regueb</td>
+				<td>36.75</td>
+				<td>23.680</td>
+				<td>0.84</td>
+				<td>0.480</td>
+				<td>-1.00</td>
+			</tr><tr>
+				<td>testprid</td>
+				<td>28.86</td>
+				<td>18.790</td>
+				<td>0.64</td>
+				<td>0.530</td>
+				<td>-1.00</td>
+			</tr>
+			
+			</tbody>
+			</table>
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+			</tbody>
+			</table>
+
+
+
+			<!--<h1>Submit Your Results (coming soon...)</h1>-->
+
+
+
+		</div>
+
+		<div class="footer">
+
+		</div>
+
+		<!--
+		<script>
+			includeHTML();
+		</script>
+		-->
+		<script src="./SIDD_files/jquery-2.1.1.js.下载"></script>
+		<script src="./SIDD_files/jquery.mobile.custom.min.js.下载"></script> <!-- Resource jQuery -->
+		<script src="./SIDD_files/main.js.下载"></script> <!-- Resource jQuery -->
+
+	
+
 </body></html>
