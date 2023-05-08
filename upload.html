@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>SIDD</title>
+		<link rel="shortcut icon" href="./favicon.ico" type="image/ico" />
+		
+		<!--<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+		<link rel="stylesheet" href="css/styles.css">
+		
+		<script type="text/javascript" src="files/scripts.js"></script>
+		
+		<!-- for slider -->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+		<script src="files/modernizr.js"></script>
+	</head>
+
+	<body>
+	
+		<!--<div w3-include-html="header.html"></div>-->
+		
+		<!--#include file="header.html" -->
+
+		<!-- HEADER -->
+		
+		<div class="head-container">
+		
+			
+<div class="head-container">
+	<div style="width: 100%; text-align:center;">
+		<h2>Smartphone Image Denoising Dataset</h2>
+		<p>
+		<a href="https://www.eecs.yorku.ca/~kamel/" target="_blank" rel="noopener">Abdelrahman Abdelhamed</a><sup>1</sup> 
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="https://www.microsoft.com/en-us/research/people/stevelin/" target="_blank" rel="noopener">Stephen Lin</a><sup>2</sup> 
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="https://www.eecs.yorku.ca/~mbrown/" target="_blank">Michael S. Brown</a><sup>1</sup>
+		</p>
+		
+		<p>
+		<sup>1</sup><a href="http://eecs.lassonde.yorku.ca/" target="_blank" rel="noopener">York University</a>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+		<sup>2</sup><a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noopener">Microsoft Research</a>
+		
+		</p>
+	</div>
+	
+	<div class="topnav">
+		
+	</div>
+	
+</div>			
+		</div>
+
+		<!-- /HEADER -->
+		
+		<div class="body-container">
+			
+			<h1>Upload your results</h1>
+			
+			<p> This feature is still experimental, if you encounter any problems, please feel free to <a href="mailto:kamel@eecs.yorku.ca?subject=SIDD">contact me</a>.</p>
+			
+			<p>If requestd, your results will appear on the benchmark page soon after you submit your file.</p>
+			
+			<p>For information on how to prepare your results, please refer to <b><a href="https://www.eecs.yorku.ca/~kamel/sidd/benchmark.php">the benchmark page</a></b>. Make sure to use the latest version of the benchmark code.</p>
+			
+			<div class="submitForm">
+			<form method="post" enctype="multipart/form-data" action="upload_submission.php">
+
+				<p><span class="fieldName">File to submit: </span> <input type="file" name="file" id="file" class="input" /> Filename should be "SubmitRaw.mat" or "SubmitSrgb.mat".
+				</p>
+				<p>
+				<span class="fieldName">Method name: </span> <input type="text" name="method" id="method" class="input" />
+				</p>
+				<p>
+				<span class="fieldName">E-mail: </span> <input type="email" name="email" id="email" class="input" /> Results will be sent to this email.
+				</p>
+				<p><span class="fieldName">Post results? </span> <input type="checkbox" name="post_result" value="yes" /> Check this box if you want your results to be posted on the benchmark page. 
+				</p>
+				<p><span class="fieldName"> </span> <input type="submit" name="submit" value="Submit" class="button" />
+				<span id="message" style="color:red;">&nbsp;</span>
+				</p>
+				
+			</form>
+			</div>
+			
+			<p>[<b><a href="https://www.eecs.yorku.ca/~kamel/sidd/benchmark.php">Go back to the benchmark page</a></b>]</p>
+			
+			
+			
+			<script>
+			document.forms[0].addEventListener('submit', function( evt ) {
+				// check file
+				var file = document.getElementById('file').files[0];
+				if (!file){
+					evt.preventDefault();
+					var str = "No file chosen!";
+					document.getElementById("message").innerHTML = str;
+					return 1;
+				}
+				
+				// check file name
+				var fn = file.name;
+				var fn_ok = (file.name == "SubmitRaw.mat") || (file.name == "SubmitSrgb.mat");
+				if (!fn_ok){
+					evt.preventDefault();
+					var str = "Filename should be \"SubmitRaw.mat\" or \"SubmitSrgb.mat\"";
+					document.getElementById("message").innerHTML = str;
+					return 1;
+				}
+				// check method
+				var meth = document.getElementById('method');
+				//var meth_ok = meth.value.match(/$[0-9a-z\-\_]+^/i);
+				if (!meth.value){
+					evt.preventDefault();
+					var str = "Method name is required for posting results.";
+					document.getElementById("message").innerHTML = str;
+					return 1;
+				}
+				// check email
+				var email = document.getElementById('email');
+				if (!email.value){
+					evt.preventDefault();
+					var str = "Email is required to send the results.";
+					document.getElementById("message").innerHTML = str;
+					return 1;
+				}
+				// check file size
+				var n_mb = 900;
+				var sz = 1048576 * n_mb;
+				if(file && file.size < sz) { // this size is in bytes
+					//Submit form    				
+					document.getElementById("message").innerHTML = "Uploading! Please wait...";
+				} else {
+					evt.preventDefault();
+					var str = "File size should be less than " + n_mb + " MB.";
+					document.getElementById("message").innerHTML = str;
+				}
+			}, false);			
+			</script>
+			
+		</div>
+		
+		<div class="footer">
+			
+		</div>
+		
+		<!--
+		<script>
+			includeHTML();
+		</script>
+		-->
+		<script src="files/jquery-2.1.1.js"></script>
+		<script src="files/jquery.mobile.custom.min.js"></script> <!-- Resource jQuery -->
+		<script src="files/main.js"></script> <!-- Resource jQuery -->
+		
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://www.cs.yorku.ca/~kamel/sidd/benchmark.php -->
+<html lang="en" style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Deraining</title>
+		<link rel="shortcut icon" href="http://www.cs.yorku.ca/~kamel/sidd/favicon.ico" type="image/ico">
+
+		<!--<link rel="stylesheet" href="css/reset.css"/>  -->
+		<link rel="stylesheet" href="./files/styles.css">
+
+		<script type="text/javascript" src="./files/scripts.js.下载"></script>
+
+		<!-- for slider -->
+		<link href="./files/css" rel="stylesheet" type="text/css">
+
+		<script src="./files/modernizr.js.下载"></script>
+		
+		<!-- table sorting -->
+		<script src="./files/sort_table.js.下载"></script>
+		<link href="./files/font-awesome.min.css" rel="stylesheet">、
+		
+		<style>
+			.subpage {
+				display: none;
+			}
+			#home {
+				display: block;
+			}
+		</style>
+		
+	</head>
+	
+<!-- BODY部分 -->
+<body onload="sortTable(event, &#39;t01&#39;, 1); sortTable(event, &#39;t02&#39;, 1);"><!-- -->
+
+		<!--<div w3-include-html="header.html"></div>-->
+
+		<!--#include file="header.html" -->
+
+		<!-- HEADER -->		
+<div class="head-container">
+	<div style="width: 100%; text-align:center;">
+		<h2>High-Quality Image Deraining Dataset</h2>
+		<p>
+		<a href="https://www.eecs.yorku.ca/~kamel/" target="_blank" rel="noopener">Xiang Chen</a><sup>1</sup>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="https://www.microsoft.com/en-us/research/people/stevelin/" target="_blank" rel="noopener">Jinshan Pan</a><sup>1</sup>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<a href="https://www.eecs.yorku.ca/~mbrown/" target="_blank">XXX</a><sup>2</sup>
+		</p>
+
+		<p>
+		<sup>1</sup><a href="http://eecs.lassonde.yorku.ca/" target="_blank" rel="noopener">Nanjing University of Science and Technology</a>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<sup>2</sup><a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noopener">XXX</a>
+
+		</p>
+</div>
+
+<div class="topnav">
+    <a href="home.html"><h2>Home</h2></a>
+    <a href="survey.html"><h2>Survey</h2></a>
+    <a href="benchmark.html"><h2>Benchmark</h2></a>
+</div>
+
+
+<!-- 添加JavaScript代码 -->
+<script>
+    // 获取顶部导航栏中的所有链接
+    const navLinks = document.querySelectorAll('.topnav a');
+
+    // 遍历所有链接并为点击事件添加监听器
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // 获取链接的href属性并去除#字符
+            const href = link.getAttribute('href').substring(1);
+            
+            // 隐藏所有子页面
+            const subpages = document.querySelectorAll('.subpage');
+            subpages.forEach(subpage => {
+                subpage.style.display = 'none';
+            });
+            
+            // 显示与点击链接对应的子页面
+            document.getElementById(href).style.display = 'block';
+        });
+    });
+</script>
+
+<p>这里放结果表格和提交结果</p>
+
+<h1>Upload your results</h1>
+			
+<a href="upload.html" class="button">Click here to submit your results</a>
+
+</body></html>
+
