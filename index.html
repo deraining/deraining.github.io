@@ -79,11 +79,7 @@
 	<p>
 		The proposed platform and the collected methods, datasets, and comparison results are publicly available and will be regularly updated at this website.
 	</p>		
-	<!--
-	<p>
-		The benchmark is currently hosted here on this website.
-	</p>
-	-->
+
 		</i>
 </div>
 			<figure class="cd-image-container">
@@ -103,46 +99,44 @@
 
 		<div class="body-container">
 
-                        <!--
 			<h1>Abstract</h1>
 			<p>
-				Image deraining is a typical low-level vision problem in the last decade, which aims to recover the clear image from the observed rainy one. Recently, numerous deep learning-based methods have resorted to diverse types of networks, such as convolutional neural networks (CNNs), generative adversarial networks (GANs), Transformers, diffusion models, etc., as preferable choices compared to traditional prior-based algorithms. In view of the rapid development of this research field, in this paper, we present a comprehensive and timely survey of current deraining approaches. We first summarize the rainy image formulation models, and establish the latest milestone of single image deraining, which goes from prior-based to data-driven. Then, we offer a detailed review of deep image deraining technologies, including network structures, learning strategies, loss functions, benchmark datasets, and evaluation metrics. In addition, we conduct performance comparisons quantitatively and qualitatively. Since there exits the discrepancy in training samples of existing deraining methods, we provide an online platform for the first time, which releases 200GB different deraining results under commonly-used training modes for general users. Finally, we discuss the key challenges and suggest promising future research directions for this research field. This survey and the designed online platform could serve as a reference source for future study and promote the development of the community. The proposed platform and the collected methods, datasets, and comparison results are publicly available and will be regularly updated at https://cschenxiang.github.io/Deraining.
+				Recent years have witnessed significant advances in image deraining due to the kinds of effective image priors and deep learning models. As each deraining approach has individual settings (e.g., training and test datasets, evaluation criteria), how to fairly evaluate existing approaches comprehensively is not a trivial task. Although existing surveys aim to review of image deraining approaches comprehensively, few of them focus on providing unify evaluation settings to examine the deraining capability and practicality evaluation. In this paper, we provide a comprehensive review of existing image deraining method and provide a unify evaluation setting to evaluate the performance of image deraining methods. We construct a new high-quality benchmark named HQ-RAIN to further conduct extensive evaluation, consisting of 5,000 paired high-resolution synthetic images with higher harmony and realism. We also discuss the existing challenges and highlight several future research opportunities worth exploring. To facilitate the reproduction and tracking of the latest deraining technologies for general users, we build an online platform to provide the off-the-shelf toolkit, involving the large-scale performance evaluation. This online platform and the proposed new benchmark are publicly available and will be regularly updated at http://www.deraining.tech/.
 			</p>
-
 
 			<h1>Papers</h1>
 			<p>
-				Xiang Chen, Hao Li, Mingqiang Li, Jinshan Pan. "Learning A Sparse Transformer Network for Effective Image Deraining", IEEE Computer Vision and Pattern Recognition (CVPR), June 2023.
+				Xiang Chen, Jinshan Pan, Jiangxin Dong, Jinhui Tang. "Towards Unified Deep Image Deraining: A Survey and A New Benchmark", arXiv preprint arXiv:2310.03535 (arXiv), 2023.
 			</p>
 
 			<p>
-				[<a href="https://arxiv.org/abs/2303.11950" target="_blank" rel="noopener"><b>PDF</b></a>] &nbsp;
+				[<a href="https://arxiv.org/abs/2310.03535" target="_blank" rel="noopener"><b>PDF</b></a>] &nbsp;
 				[<a href="#" onclick="javascript:toggleBibtex('SIDDBibtex'); return false;" title="Show/Hide Bibtex"><b>Bibtex</b></a>]
 			</p>
 
 			<div id="SIDDBibtex" style="display:none;">
-				<code style="white-space: pre-line;">@inproceedings{DRSformer,
-					title={Learning A Sparse Transformer Network for Effective Image Deraining}, 
-					author={Chen, Xiang and and Li, Hao and Li, Mingqiang and Pan, Jinshan},
-					booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+				<code style="white-space: pre-line;">@article{chen2023survey,
+					title={Towards Unified Deep Image Deraining: A Survey and A New Benchmark}, 
+					author={Chen, Xiang and Pan, Jinshan and Dong, Jiangxin and Tang, Jinhui},
+					journal={arXiv preprint arXiv:2105.15077},
 					year={2023}
 				}</code>
 			</div>
 
+				<!--
 			<h1>Code</h1>
 			<p>
 				<a href="https://github.com/cschenxiang/DRSformer" target="_blank" rel="noopener"><b>Rain Image Generation</b></a>
 			</p>
-                        -->
+		-->
 
 			<h1>News</h1>
 			<ul>
-			<li>2023.06.10: Welcome VALSE attendees to visit our website.</li>
-			<li>2023.06.01: The online platform is avaliable.</li>
+			<li>2023.10.01: The online platform is avaliable.</li>
 			</ul>
 			
 			<h1>Acknowledgment</h1>
-			<p> Part of the code for this platform borrows from <a href="https://www.eecs.yorku.ca/~kamel/sidd/index.php" target="_blank" rel="noopener">SIDD</a>. Thanks to Caihua Kong (LISTENAI) and Longgang Dai (JINGWEI HIRAIN) for supporting this project.</p>
+			<p> Part of the code for this platform borrows from <a href="https://www.eecs.yorku.ca/~kamel/sidd/index.php" target="_blank" rel="noopener">SIDD</a>. Thanks to Prof. Kui Jiang (HIT), Caihua Kong (LISTENAI) and Longgang Dai (JINGWEI HIRAIN) for supporting this project.</p>
 
 			<h1>License</h1>
 			<p>The all online resources are under the MIT License.</p>
