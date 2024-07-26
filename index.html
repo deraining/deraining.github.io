@@ -1,184 +1,1891 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)http://www.cs.yorku.ca/~kamel/sidd/benchmark.php -->
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: April 17, 2023 --><html lang="en-us" >
 
-		<title>Research on Deraining </title>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+<!--head 部分-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
 
-		  gtag('config', 'UA-119390362-1');
-		</script>
-
-		<!--<link rel="stylesheet" href="css/reset.css"/>  -->
-		<link rel="stylesheet" href="./files/styles.css">
-
-		<script type="text/javascript" src="./files/scripts.js"></script>
-
-		<!-- for slider -->
-		<!-- for slider -->
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
-		<script src="./files/modernizr.js"></script>
-		
-	</head>
-	
-<!-- BODY部分 -->
-	<body>
-
-		<!--<div w3-include-html="header.html"></div>-->
-
-		<!--#include file="header.html" -->
-
-		<!-- HEADER -->		
-		<div class="head-container">
-	
-<div class="head-container">
-	<div style="width: 100%; text-align:center;">
-		<h2>Towards Unified Deep Image Deraining: A Survey and A New Benchmark</h2>
-		<p>
-		<a href="https://cschenxiang.github.io/" target="_blank" rel="noopener">Xiang Chen</a>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<a href="https://jspan.github.io/" target="_blank" rel="noopener">Jinshan Pan</a>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<a href="https://scholar.google.com/citations?user=ruebFVEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Jiangxin Dong</a>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<a href="https://scholar.google.com/citations?user=ByBLlEwAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Jinhui Tang</a>
-		</p>
-
-		<p>
-		Nanjing University of Science and Technology
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;		
-		</p>
-		
-	</div>
-
-
-	<div class="topnav">
-			<a href="index.html"><h2>Home</h2></a>
-			<a href="/survey/index.html"><h2>Survey</h2></a>
-			<a href="benchmark.html"><h2>Benchmark</h2></a>
-	</div>
-
-
-</div>	
-		
-		<p>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSdQW5kZ_wJ4LPaxH3O7FSTuZCQ0CrD9UzQnJqGnS9gshmht_A/viewform?usp=sf_link" class="button-block">Click here to submit your results</a>
-		</p>
-
-		<div class="entry grey-back" >
-	<i>
-	<p>
-		This designed online platform could serve as a reference source for future study and promote the development of the community.
-	</p>
-	<p>
-		The proposed platform and the collected methods, datasets, and comparison results are publicly available and will be regularly updated at this website.
-	</p>		
-
-		</i>
-</div>
-			<figure class="cd-image-container">
-				<img src="./img/rain.png" alt="Noisy Image">
-				<span class="cd-image-label" data-type="original">Rainy Image</span>
-
-				<div class="cd-resize-img"> <!-- the resizable image on top -->
-					<img src="./img/gt.png" alt="Ground Truth Image">
-					<span class="cd-image-label" data-type="modified">Ground Truth</span>
-				</div>
-
-				<span class="cd-handle"></span>
-			</figure> <!-- cd-image-container -->
-		</div>
-
-		<!-- /HEADER -->
-
-		<div class="body-container">
-
-			<h1>Abstract</h1>
-			<p>
-				<div style="text-align:justify">Recent years have witnessed significant advances in image deraining due to the kinds of effective image priors and deep learning models. As each deraining approach has individual settings (e.g., training and test datasets, evaluation criteria), how to fairly evaluate existing approaches comprehensively is not a trivial task. Although existing surveys aim to review of image deraining approaches comprehensively, few of them focus on providing unify evaluation settings to examine the deraining capability and practicality evaluation. In this paper, we provide a comprehensive review of existing image deraining method and provide a unify evaluation setting to evaluate the performance of image deraining methods. We construct a new high-quality benchmark named HQ-RAIN to further conduct extensive evaluation, consisting of 5,000 paired high-resolution synthetic images with higher harmony and realism. We also discuss the existing challenges and highlight several future research opportunities worth exploring. To facilitate the reproduction and tracking of the latest deraining technologies for general users, we build an online platform to provide the off-the-shelf toolkit, involving the large-scale performance evaluation. This online platform and the proposed new benchmark are publicly available and will be regularly updated at http://www.deraining.tech/.</div>
-			</p>
-
-			<h1>Paper</h1>
-			<p>
-				Xiang Chen, Jinshan Pan, Jiangxin Dong, Jinhui Tang. "Towards Unified Deep Image Deraining: A Survey and A New Benchmark", arXiv preprint arXiv:2310.03535 (arXiv), 2023.
-			</p>
-
-			<p>
-				[<a href="https://arxiv.org/abs/2310.03535" target="_blank" rel="noopener"><b>PDF</b></a>] &nbsp;
-				[<a href="#" onclick="javascript:toggleBibtex('SIDDBibtex'); return false;" title="Show/Hide Bibtex"><b>Bibtex</b></a>]
-			</p>
-
-			<div id="SIDDBibtex" style="display:none;">
-				<code style="white-space: pre-line;">@article{chen2023survey,
-					title={Towards Unified Deep Image Deraining: A Survey and A New Benchmark}, 
-					author={Chen, Xiang and Pan, Jinshan and Dong, Jiangxin and Tang, Jinhui},
-					journal={arXiv preprint arXiv:2105.15077},
-					year={2023}
-				}</code>
-			</div>
-
-				<!--
-			<h1>Code</h1>
-			<p>
-				<a href="https://github.com/cschenxiang/DRSformer" target="_blank" rel="noopener"><b>Rain Image Generation</b></a>
-			</p>
-		-->
-
-			<h1>News</h1>
-			<ul>
-            <li>2023.12.04: The proposed HQ-RAIN is available. </li>
-			<li>2023.10.06: The paper is available [<a href="https://arxiv.org/abs/2310.03535" target="_blank" rel="noopener">here</a>].</li>
-			<li>2023.10.01: The online platform is avaliable.</li>
-			</ul>
-			
-			<h1>Acknowledgment</h1>
-			<p> Part of the code for this platform borrows from <a href="https://www.eecs.yorku.ca/~kamel/sidd/index.php" target="_blank" rel="noopener">SIDD</a>. </p>
-
-			<h1>License</h1>
-			<p>The all online resources are under the MIT License.</p>
-			
-			<h1>Contact</h1>
-			<p>For any questions, remarks, comments, or collaborations, please contact: chenxiang@njust.edu.cn.</p>
-
-			<!--<h1>Authors</h1>-->
-
-		</div>
-
-		<div class="footer">
-
-		</div>
-
-		<!--
-		<script>
-			includeHTML();
-		</script>
-		-->
-
-		<script src="./files/jquery-2.1.1.js"></script>
-		<script src="./files/jquery.mobile.custom.min.js"></script> <!-- Resource jQuery -->
-		<script src="./files/main.js"></script> <!-- Resource jQuery -->
-
-	<div id="footer">
-	<div id="footer-text"></div>
-    </div>
-    <div id = "logo" style="margin-top: 10px; text-align:center">
-	    <div align="center" style="margin:auto;padding-top:10px">
-            <div style="width:12%">
-				<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=UvAnV6DMvsWrDhyqfAW9pOR-O0NWV6F5XtmusegOD9A'></script>
-            </div>
-           <br>
-            </div>
-     </div>     
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap&display=swap" media="print" onload="this.media='all'">
     
+
+    <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+  <link rel="stylesheet" href="/css/wowchemy.874f41ec319518c2d6d8a2a48dc3eb06.css" />
+
+
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+
+  <meta name="author" content="chenxiang 陈翔" />
+
+
+
+<meta name="description" content="A highly-customizable Hugo academic resume theme powered by Wowchemy website builder." />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://example.com/publication/" />
+<link rel="canonical" href="https://example.com/publication/" />
+
+
+
+<link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<!-- <link rel="icon" type="image/png" href="/media/icon_hue1fa31ed5a32e25c5f9433c308ac1721_26377_32x32_fill_lanczos_center_3.png" /> -->
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hue1fa31ed5a32e25c5f9433c308ac1721_26377_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+<meta property="twitter:card" content="summary" />
+
+<meta property="twitter:site" content="@wowchemy" />
+<meta property="twitter:creator" content="@wowchemy" />
+<meta property="twitter:image" content="https://example.com/media/icon_hue1fa31ed5a32e25c5f9433c308ac1721_26377_512x512_fill_lanczos_center_3.png" />
+<meta property="og:site_name" content="NeonLeexiang" />
+<meta property="og:url" content="https://example.com/publication/" />
+<meta property="og:title" content="Publications | NeonLeexiang" />
+<meta property="og:description" content="A highly-customizable Hugo academic resume theme powered by Wowchemy website builder." /><meta property="og:image" content="https://example.com/media/icon_hue1fa31ed5a32e25c5f9433c308ac1721_26377_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta property="og:updated_time" content="2023-01-05T00:00:00&#43;00:00" />
+  
+    <link rel="alternate" href="/survey/index.xml" type="application/rss+xml" title="NeonLeexiang" />
+  
+
+  <title>Research on Deraining</title>
+
+
+</head>
+
+
+
+<!--body 部分-->
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper" data-wc-page-id="3a079e7dad19be978a318345a7749d34" >
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+          <div class="container-xl">
+            
+            <button type="button" class="navbar-toggler" data-toggle="collapse"
+                    data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+            </button>
+      
+            <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+              <!-- <li class="nav-item">
+                <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+              </li> -->
+              
+              <li class="nav-item dropdown theme-dropdown">
+                <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+                  <i class="fas fa-moon" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item js-set-theme-light">
+                    <span>Light</span>
+                  </a>
+                  <a href="#" class="dropdown-item js-set-theme-dark">
+                    <span>Dark</span>
+                  </a>
+                  <a href="#" class="dropdown-item js-set-theme-auto">
+                    <span>Automatic</span>
+                  </a>
+                </div>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+              </li> -->
+              
+            </ul>
+      
+          </div>
+        </nav>
+      </header>
+
   </div>
 
-	</body>
+<div class="page-body">
+  <div class="universal-wrapper pt-1">
+    <p>[<b><a href="../index.html">Go back to the Home page</a></b>]</p>
+  </div>   
+  
+<!-- publications -->
 
+<div class="universal-wrapper pt-1">
+ <h5>Note: For the following papers on image restoration, we only include the image restoration work validated on the deraining task in their paper. If you would like to add your paper, please contact chenxiang@njust.edu.cn.</h5> 
+</div>
+  
+<div class="universal-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="form-row mb-4">
+        <div class="col-auto">
+          <input type="search" class="filter-search form-control form-control-sm" placeholder="Search..." autocapitalize="off"
+          autocomplete="off" autocorrect="off" role="textbox" spellcheck="false">
+        </div>
+        <div class="col-auto">
+          <select class="pub-filters pubtype-select form-control form-control-sm" data-filter-group="pubtype">
+            <option value="*">Type</option>
+            
+            
+            <option value=".pubtype-1">
+              Conference paper
+            </option>
+            <option value=".pubtype-2">
+              Journal paper
+            </option>
+            
+          </select>
+        </div>
+
+        <div class="col-auto">
+          <select class="pub-filters form-control form-control-sm" data-filter-group="year">
+            <option value="*">Date</option>
+            
+            
+            <option value=".year-2024">
+              2024
+            </option>
+            <option value=".year-2023">
+              2023
+            </option>
+            <option value=".year-2022">
+              2022
+            </option>
+            <option value=".year-2021">
+              2021
+            </option>
+           <option value=".year-2020">
+              2020
+            </option>
+           <option value=".year-2019">
+              2019
+            </option>
+           <option value=".year-2018">
+              2018
+            </option>
+           <option value=".year-2017">
+              2017
+            </option>            
+           <option value=".year-before">
+              Before 2017
+            </option>           
+            
+          </select>
+        </div>
+      </div>
+
+      <div id="container-publications">
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+    <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+      <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+      <span class="article-metadata li-cite-author">
+      <span >
+        Harnessing Joint Rain-/Detail-aware Representations to Eliminate Intricate Rains
+      </span>
+      <p> 
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2404.12091" target="_blank" rel="noopener">ICLR'24</a>
+      </p>
+    </div>
+</div> 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+    <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+      <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+      <span class="article-metadata li-cite-author">
+      <span >
+        Efficient Frequency-Domain Image Deraining with Contrastive Regularization
+      </span>
+      <p> 
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="" target="_blank" rel="noopener">ECCV'24</a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/deng-ai-lab/FADformer" target="_blank" rel="noopener">FADformer Code</a>
+      </p>
+    </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+    <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+      Raindrop Clarity: A Dual-Focused Dataset for Day and Night Raindrop Removal
+    </span>
+    <p> 
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2407.16957" target="_blank" rel="noopener">ECCV'24</a>
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/jinyeying/RaindropClarity" target="_blank" rel="noopener">Raindrop Clarity Code</a>
+    </p>
+  </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+    <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+      MambaIR: A Simple Baseline for Image Restoration with State-Space Model
+    </span>
+    <p> 
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2402.15648" target="_blank" rel="noopener">ECCV'24</a>
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/csguoh/MambaIR" target="_blank" rel="noopener">MambaIR Code</a>
+    </p>
+  </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+    <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+      Learning A Spiking Neural Network for Efficient Image Deraining
+    </span>
+    <p> 
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2405.06277" target="_blank" rel="noopener">IJCAI'24</a>
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/MingTian99/ESDNet" target="_blank" rel="noopener">ESDNet Code</a>
+    </p>
+  </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+    <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+      Explore Internal and External Similarity for Single Image Deraining with Graph Neural Networks
+    </span>
+    <p> 
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2406.00721" target="_blank" rel="noopener">IJCAI'24</a>
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/supersupercong/MSGNN" target="_blank" rel="noopener">MSGNN Code</a>
+    </p>
+  </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+    <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+      Rethinking Multi-Scale Representations in Deep Deraining Transformer
+    </span>
+    <p> 
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="" target="_blank" rel="noopener">AAAI'24</a>
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/cschenhm/MSDT" target="_blank" rel="noopener">MSDT Code</a>
+    </p>
+  </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+    <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+     <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+      <span class="article-metadata li-cite-author">
+      <span >
+        Adapt or Perish: Adaptive Sparse Transformer with Attentive Feature Refinement for Image Restoration
+      </span>
+     <p> 
+   <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2024/html/Zhou_Adapt_or_Perish_Adaptive_Sparse_Transformer_with_Attentive_Feature_Refinement_CVPR_2024_paper.html" target="_blank" rel="noopener">CVPR'24</a>
+   <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/joshyZhou/AST" target="_blank" rel="noopener">AST Code</a>
+     </p>
+    </div>
+   </div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2024">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Bidirectional Multi-Scale Implicit Neural Representations for Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2404.01547" target="_blank" rel="noopener">CVPR'24</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/cschenxiang/NeRD-Rain" target="_blank" rel="noopener">NeRD-Rain Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    PromptRestorer: A Prompting Image Restoration Method with Degradation Perception
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openreview.net/pdf?id=nIaNgaQvsV" target="_blank" rel="noopener">NeurIPS'23</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Networks are Slacking Off: Understanding Generalization Problem in Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/2305.15134.pdf" target="_blank" rel="noopener">NeurIPS'23</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+   <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+    Selective Frequency Network for Image Restoration
+    </span>
+   <p> 
+ <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openreview.net/pdf?id=tyZ1ChGZIKO" target="_blank" rel="noopener">ICLR'23</a>
+ <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/c-yn/SFNet" target="_blank" rel="noopener">SFNet Code</a>
+   </p>
+  </div>
+ </div> 
+
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    From Sky to the Ground: A Large-scale Benchmark and Simple Baseline Towards Real Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/ICCV2023/papers/Guo_From_Sky_to_the_Ground_A_Large-scale_Benchmark_and_Simple_ICCV_2023_paper.pdf" target="_blank" rel="noopener">ICCV'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/yunguo224/LHP-Rain" target="_blank" rel="noopener">LHP-Rain Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Sparse Sampling Transformer with Uncertainty-Driven Ranking for Unified Removal of Raindrops and Rain Streaks
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_Sparse_Sampling_Transformer_with_Uncertainty-Driven_Ranking_for_Unified_Removal_of_ICCV_2023_paper.pdf" target="_blank" rel="noopener">ICCV'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Ephemeral182/UDR-S2Former_deraining" target="_blank" rel="noopener">UDR-S2Former Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Learning Rain Location Prior for Nighttime Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/ICCV2023/papers/Zhang_Learning_Rain_Location_Prior_for_Nighttime_Deraining_ICCV_2023_paper.pdf" target="_blank" rel="noopener">ICCV'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/zkawfanx/RLP" target="_blank" rel="noopener">RLP Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Image Restoration with Mean-Reverting Stochastic Differential Equations
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2301.11699" target="_blank" rel="noopener">ICML'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Algolzw/image-restoration-sde" target="_blank" rel="noopener">IR-SDE Code</a>
+  </p>
+ </div>
+</div>        
+        
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Restoring Vision in Adverse Weather Conditions with Patch-Based Denoising Diffusion Models
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/document/10021824" target="_blank" rel="noopener">TPAMI'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/IGITUGraz/WeatherDiffusion" target="_blank" rel="noopener">WeatherDiffusion Code</a>
+  </p>
+ </div>
+</div>
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Learning A Sparse Transformer Network for Effective Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Learning_a_Sparse_Transformer_Network_for_Effective_Image_Deraining_CVPR_2023_paper.pdf" target="_blank" rel="noopener">CVPR'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/cschenxiang/DRSformer" target="_blank" rel="noopener">DRSformer Code</a>
+  </p>
+ </div>
+</div>
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    SmartAssign: Learning a Smart Knowledge Assignment Strategy for Deraining and Desnowing
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_SmartAssign_Learning_a_Smart_Knowledge_Assignment_Strategy_for_Deraining_and_CVPR_2023_paper.pdf" target="_blank" rel="noopener">CVPR'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://gitee.com/mindspore/models/tree/master/research/cv/SmartAssign" target="_blank" rel="noopener">SmartAssign Code</a>
+  </p>
+ </div>
+</div>  
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Learning Weather-General and Weather-Specific Features for Image Restoration Under Multiple Adverse Weather Conditions
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Zhu_Learning_Weather-General_and_Weather-Specific_Features_for_Image_Restoration_Under_Multiple_CVPR_2023_paper.pdf" target="_blank" rel="noopener">CVPR'23</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Ingredient-oriented Multi-Degradation Learning for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Ingredient-Oriented_Multi-Degradation_Learning_for_Image_Restoration_CVPR_2023_paper.pdf" target="_blank" rel="noopener">CVPR'23</a>
+  </p>
+ </div>
+</div>     
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Continual Image Deraining with Hypergraph Convolutional Networks
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/document/10035447" target="_blank" rel="noopener">TPAMI'23</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2023">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Hybrid CNN-Transformer Feature Fusion for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ojs.aaai.org/index.php/AAAI/article/view/25111" target="_blank" rel="noopener">AAAI'23</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/cschenxiang/HCT-FFN" target="_blank" rel="noopener">HCT-FFN Code</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Image De-raining Transformer
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/document/9798773" target="_blank" rel="noopener">TPAMI'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/jiexiaou/IDT" target="_blank" rel="noopener">IDT Code</a>
+  </p>
+ </div>
+</div>  
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Generative Status Estimation and Information Decoupling for Image Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/1dc2fe8d9ae956616f86bab3ce5edc59-Paper-Conference.pdf" target="_blank" rel="noopener">NeurIPS'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/wxxx1025/SEIDNet" target="_blank" rel="noopener">SEIDNet Code</a>
+  </p>
+ </div>
+</div>     
+   
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Stochastic Window Transformer for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/3ca6d336ddaa316a6ae953a20b9477cf-Paper-Conference.pdf" target="_blank" rel="noopener">NeurIPS'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/jiexiaou/Stoformer" target="_blank" rel="noopener">Stoformer Code</a>
+  </p>
+ </div>
+</div>     
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Magic ELF: Image Deraining Meets Association Learning and Transformer
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2207.10455" target="_blank" rel="noopener">ACM MM'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/kuijiang94/Magic-ELF" target="_blank" rel="noopener">ELF Code</a>
+  </p>
+ </div>
+</div>     
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Not Just Streaks: Towards Ground Truth for Single Image Deraining 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://link.springer.com/chapter/10.1007/978-3-031-20071-7_42" target="_blank" rel="noopener">ECCV'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/UCLA-VMG/GT-RAIN" target="_blank" rel="noopener">GT-RAIN Code</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Restormer: Efficient Transformer for High-Resolution Image Restoration 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2111.09881" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/swz30/Restormer" target="_blank" rel="noopener">Restormer Code</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    TransWeather: Transformer-based Restoration of Images Degraded by Adverse Weather Conditions
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2111.14813" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/jeya-maria-jose/TransWeather" target="_blank" rel="noopener">TransWeather Code</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Uformer: A General U-Shaped Transformer for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2106.03106" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/ZhendongWang6/Uformer" target="_blank" rel="noopener">Uformer Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    MAXIM: Multi-Axis MLP for Image Processing
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2201.02973" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/google-research/maxim" target="_blank" rel="noopener">MAXIM Code</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Unsupervised Deraining: Where Contrastive Learning Meets Self-similarity
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2203.11509" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/yunguo224/NLCL" target="_blank" rel="noopener">NLCL Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Deep Generalized Unfolding Networks for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2204.13348" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/MC-E/Deep-Generalized-Unfolding-Networks-for-Image-Restoration" target="_blank" rel="noopener">DGUNet Code</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Unpaired Deep Image Deraining Using Dual Contrastive Learning
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Unpaired_Deep_Image_Deraining_Using_Dual_Contrastive_Learning_CVPR_2022_paper.pdf" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/cschenxiang/DCD-GAN" target="_blank" rel="noopener">DCD-GAN Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    All-In-One Image Restoration for Unknown Corruption
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://pengxi.me/wp-content/uploads/2022/03/All-In-One-Image-Restoration-for-Unknown-Corruption.pdf" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/XLearning-SCU/2022-CVPR-AirNet" target="_blank" rel="noopener">AirNet Code</a>
+  </p>
+ </div>
+</div>     
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Dreaming to Prune Image Deraining Networks
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Zou_Dreaming_To_Prune_Image_Deraining_Networks_CVPR_2022_paper.pdf" target="_blank" rel="noopener">CVPR'22</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    KNN Local Attention for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Lee_KNN_Local_Attention_for_Image_Restoration_CVPR_2022_paper.pdf" target="_blank" rel="noopener">CVPR'22</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Learning Multiple Adverse Weather Removal via Two-stage Knowledge Learning and Multi-contrastive Regularization: Toward a Unified Model
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Learning_Multiple_Adverse_Weather_Removal_via_Two-Stage_Knowledge_Learning_and_CVPR_2022_paper.pdf" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/fingerk28/Two-stage-Knowledge-For-Multiple-Adverse-Weather-Removal" target="_blank" rel="noopener">Code</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Towards Robust Rain Removal Against Adversarial Attacks: A Comprehensive Benchmark Analysis and Beyond
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/2203.16931" target="_blank" rel="noopener">CVPR'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/yuyi-sd/Robust_Rain_Removal" target="_blank" rel="noopener">Code</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Memory Uncertainty Learning for Real-World Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/9789487" target="_blank" rel="noopener">TPAMI'22</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2022">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Online-updated High-order Collaborative Networks for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ojs.aaai.org/index.php/AAAI/article/view/20140" target="_blank" rel="noopener">AAAI'22</a>
+  </p>
+ </div>
+</div>     
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Rain Streak Removal via Dual Graph Convolutional Network
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ojs.aaai.org/index.php/AAAI/article/view/16224/16031" target="_blank" rel="noopener">AAAI'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/paper/2021/AAAI/code.zip" target="_blank" rel="noopener">DualGCN Code</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Successive Graph Convolutional Network for Image De-raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/paper/2021/IJCV/Paper.pdf" target="_blank" rel="noopener">IJCV'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/paper/2021/IJCV/code.zip" target="_blank" rel="noopener">SGCN Code</a>
+  </p>
+ </div>
+</div>
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Unfolding Taylor's Approximations for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://papers.nips.cc/paper/2021/file/9e3cfc48eccf81a0d57663e129aef3cb-Paper.pdf" target="_blank" rel="noopener">NeurIPS'22</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/manman1995/Unfolding-Taylor-s-Approximations-for-Image-Restoration" target="_blank" rel="noopener">Code</a>
+  </p>
+ </div>
+</div>      
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    EfficientDeRain: Learning Pixel-wise Dilation Filtering for High-Efficiency Single-Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ojs.aaai.org/index.php/AAAI/article/view/16239/16046" target="_blank" rel="noopener">AAAI'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/tsingqguo/efficientderain" target="_blank" rel="noopener">EfficientDeRain Code</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Removing Raindrops and Rain Streaks in One Go
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/CVPR2021/papers/Quan_Removing_Raindrops_and_Rain_Streaks_in_One_Go_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Songforrr/RainDS_CCN" target="_blank" rel="noopener">CCN Code</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Pre-Trained Image Processing Transformer
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Pre-Trained_Image_Processing_Transformer_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/huawei-noah/Pretrained-IPT" target="_blank" rel="noopener">IPT Code</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Closing the Loop: Joint Rain Generation and Removal via Disentangled Image Translation
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Ye_Closing_the_Loop_Joint_Rain_Generation_and_Removal_via_Disentangled_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/guyii54/JRGR" target="_blank" rel="noopener">JRGR Code</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Memory Oriented Transfer Learning for Semi-Supervised Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/CVPR2021/papers/Huang_Memory_Oriented_Transfer_Learning_for_Semi-Supervised_Image_Deraining_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/hhb072/MOSS" target="_blank" rel="noopener">MOSS Code</a>
+  </p>
+ </div>
+</div> 
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Multi-Stage Progressive Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/CVPR2021/papers/Zamir_Multi-Stage_Progressive_Image_Restoration_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/swz30/MPRNet" target="_blank" rel="noopener">MPRNet Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Multi-Decoding Deraining Network and Quasi-Sparsity Based Training
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Multi-Decoding_Deraining_Network_and_Quasi-Sparsity_Based_Training_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Controlling the Rain: from Removal to Rendering
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Ni_Controlling_the_Rain_From_Removal_to_Rendering_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Robust Representation Learning with Feedback for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Robust_Representation_Learning_With_Feedback_for_Single_Image_Deraining_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/LI-Hao-SJTU/DerainRLNet" target="_blank" rel="noopener">RLNet Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Image De-raining via Continual Learning
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/CVPR2021/papers/Zhou_Image_De-Raining_via_Continual_Learning_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/paper/2021/CVPR2021_code.zip" target="_blank" rel="noopener">Code</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    From Rain Generation to Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_From_Rain_Generation_to_Rain_Removal_CVPR_2021_paper.pdf" target="_blank" rel="noopener">CVPR'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/hongwang01/VRGNet" target="_blank" rel="noopener">VRGNet Code</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Spatially-Adaptive Image Restoration using Distortion-Guided Networks
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/ICCV2021/papers/Purohit_Spatially-Adaptive_Image_Restoration_Using_Distortion-Guided_Networks_ICCV_2021_paper.pdf" target="_blank" rel="noopener">ICCV'21</a>
+  </p>
+ </div>
+</div>
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Improving De-raining Generalization via Neural Reorganization
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Xiao_Improving_De-Raining_Generalization_via_Neural_Reorganization_ICCV_2021_paper.pdf" target="_blank" rel="noopener">ICCV'21</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Structure-Preserving Deraining with Residue Channel Prior Guidance
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Yi_Structure-Preserving_Deraining_With_Residue_Channel_Prior_Guidance_ICCV_2021_paper.pdf" target="_blank" rel="noopener">ICCV'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Joyies/SPDNet" target="_blank" rel="noopener">SPDNet Code</a>
+  </p>
+ </div>
+</div>
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Unpaired Learning for Deep Image Deraining with Rain Direction Regularizer
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Unpaired_Learning_for_Deep_Image_Deraining_With_Rain_Direction_Regularizer_ICCV_2021_paper.pdf" target="_blank" rel="noopener">ICCV'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://lewisyangliu.github.io/projects/UDRDR/" target="_blank" rel="noopener">UDRDR Code</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Selective Wavelet Attention Learning for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://link.springer.com/article/10.1007/s11263-020-01421-z" target="_blank" rel="noopener">IJCV'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/hhb072/SWAL" target="_blank" rel="noopener">SWAL Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Disentangled Representation Learning and Enhancement Network for Single Image De-Raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://dl.acm.org/doi/abs/10.1145/3474085.3475632" target="_blank" rel="noopener">ACM MM'21</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Multifocal Attention-Based Cross-Scale Network for Image De-raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://dl.acm.org/doi/abs/10.1145/3474085.3475444" target="_blank" rel="noopener">ACM MM'21</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Unsupervised Image Deraining: Optimization Model Driven Deep CNN
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://dl.acm.org/doi/abs/10.1145/3474085.3475441" target="_blank" rel="noopener">ACM MM'21</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/ChangfengYu-Hust/UDGNet" target="_blank" rel="noopener">UDGNet Code</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2021">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    DerainCycleGAN: Rain Attentive CycleGAN for Single Image Deraining and Rainmaking
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/9420312/" target="_blank" rel="noopener">TIP'21</a>
+  </p>
+ </div>
+</div>
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Towards Scale-Free Rain Streak Removal via Self-Supervised Fractal Band Learning
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ojs.aaai.org/index.php/AAAI/article/view/6954/6808" target="_blank" rel="noopener">AAAI'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/flyywh/AAAI-2020-FBL-SS" target="_blank" rel="noopener">FBL Code</a>
+  </p>
+ </div>
+</div>
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   All in One Bad Weather Removal using Architectural Search
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Li_All_in_One_Bad_Weather_Removal_Using_Architectural_Search_CVPR_2020_paper.pdf" target="_blank" rel="noopener">CVPR'20</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Detail-recovery Image Deraining via Context Aggregation Networks
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Deng_Detail-recovery_Image_Deraining_via_Context_Aggregation_Networks_CVPR_2020_paper.pdf" target="_blank" rel="noopener">CVPR'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Dengsgithub/DRD-Net" target="_blank" rel="noopener">DRD-Net Code</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Multi-Scale Progressive Fusion Network for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Jiang_Multi-Scale_Progressive_Fusion_Network_for_Single_Image_Deraining_CVPR_2020_paper.pdf" target="_blank" rel="noopener">CVPR'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/kuijiang94/MSPFN" target="_blank" rel="noopener">MSPFN Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   A Model-driven Deep Neural Network for Single Image Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_A_Model-Driven_Deep_Neural_Network_for_Single_Image_Rain_Removal_CVPR_2020_paper.pdf" target="_blank" rel="noopener">CVPR'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/hongwang01/RCDNet" target="_blank" rel="noopener">RCDNet Code</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Syn2Real Transfer Learning for Image Deraining using Gaussian Processes
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Yasarla_Syn2Real_Transfer_Learning_for_Image_Deraining_Using_Gaussian_Processes_CVPR_2020_paper.pdf" target="_blank" rel="noopener">CVPR'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/rajeevyasarla/Syn2Real" target="_blank" rel="noopener">Syn2Real Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Beyond Monocular Deraining: Stereo Image Deraining via Semantic Understanding
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://link.springer.com/chapter/10.1007/978-3-030-58583-9_5" target="_blank" rel="noopener">ECCV'20</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Rethinking Image Deraining via Rain Streaks and Vapors 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://link.springer.com/chapter/10.1007/978-3-030-58520-4_22" target="_blank" rel="noopener">ECCV'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/yluestc/derain" target="_blank" rel="noopener">SVANet Code</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Joint Self-Attention and Scale-Aggregation for Self-Calibrated Deraining Network 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://dl.acm.org/doi/abs/10.1145/3394171.3413559" target="_blank" rel="noopener">ACM MM'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Ohraincu/JDNet" target="_blank" rel="noopener">JDNet Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   DCSFN: Deep Cross-scale Fusion Network for Single Image Rain Removal 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://dl.acm.org/doi/abs/10.1145/3394171.3413820" target="_blank" rel="noopener">ACM MM'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Ohraincu/DCSFN" target="_blank" rel="noopener">DCSFN Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Conditional Variational Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/9084254/" target="_blank" rel="noopener">TIP'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/Yingjun-Du/VID" target="_blank" rel="noopener">VID Code</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+  Physics-Based Generative Adversarial Models for Image Restoration and Beyond 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/8968618/" target="_blank" rel="noopener">TPAMI'20</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://jspan.github.io/projects/physicsgan/" target="_blank" rel="noopener">PhysicsGAM Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2020">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+  Single Image Deraining: From Model-Based to Data-Driven and Beyond 
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/9096521/" target="_blank" rel="noopener">TPAMI'20</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Single Image Deraining: A Comprehensive Benchmark Analysis
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Single_Image_Deraining_A_Comprehensive_Benchmark_Analysis_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/panda-lab/Single-Image-Deraining" target="_blank" rel="noopener">Code</a>
+  </p>
+ </div>
+</div>  
+   
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Depth-attentional Features for Single-image Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Hu_Depth-Attentional_Features_for_Single-Image_Rain_Removal_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/xw-hu/DAF-Net" target="_blank" rel="noopener">DAF-Net Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Dual Residual Networks Leveraging the Potential of Paired Operations for Image Restoration
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Liu_Dual_Residual_Networks_Leveraging_the_Potential_of_Paired_Operations_for_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/liu-vis/DualResidualNetworks" target="_blank" rel="noopener">DualResidualNet Code</a>
+  </p>
+ </div>
+</div>     
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+  <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+   <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+    <span class="article-metadata li-cite-author">
+    <span >
+      Progressive Image Deraining Networks: A Better and Simpler Baseline
+    </span>
+   <p> 
+ <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Ren_Progressive_Image_Deraining_Networks_A_Better_and_Simpler_Baseline_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+ <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/csdwren/PReNet" target="_blank" rel="noopener">PReNet Code</a>
+   </p>
+  </div>
+ </div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Heavy Rain Image Restoration: Integrating Physics Model and Conditional Adversarial Learning
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Heavy_Rain_Image_Restoration_Integrating_Physics_Model_and_Conditional_Adversarial_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/liruoteng/HeavyRainRemoval" target="_blank" rel="noopener">HeavyRainRemoval Code</a>
+  </p>
+ </div>
+</div>      
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Semi-supervised Transfer Learning for Image Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Wei_Semi-Supervised_Transfer_Learning_for_Image_Rain_Removal_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/wwzjer/Semi-supervised-IRR" target="_blank" rel="noopener">SIRR Code</a>
+  </p>
+ </div>
+</div>     
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Spatial Attentive Single-Image Deraining with a High Quality Real Rain Dataset
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Wang_Spatial_Attentive_Single-Image_Deraining_With_a_High_Quality_Real_Rain_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/stevewongv/SPANet" target="_blank" rel="noopener">SPANet Code</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Uncertainty Guided Multi-Scale Residual Learning-using a Cycle Spinning CNN for Single Image De-Raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Yasarla_Uncertainty_Guided_Multi-Scale_Residual_Learning-Using_a_Cycle_Spinning_CNN_for_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CVPR'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/rajeevyasarla/UMRL--using-Cycle-Spinning" target="_blank" rel="noopener">UMRL Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    ERL-Net: Entangled Representation Learning for Single Image De-Raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_ERL-Net_Entangled_Representation_Learning_for_Single_Image_De-Raining_ICCV_2019_paper.pdf" target="_blank" rel="noopener">ICCV'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/RobinCSIRO/ERL-Net-for-Single-Image-Deraining" target="_blank" rel="noopener">ERL-Net Code</a>
+  </p>
+ </div>
+</div>  
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Deep Learning for Seeing Through Window With Raindrops
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Quan_Deep_Learning_for_Seeing_Through_Window_With_Raindrops_ICCV_2019_paper.pdf" target="_blank" rel="noopener">ICCV'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/jackiesdd/raindropAttention" target="_blank" rel="noopener">RaindropAttention Code</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    DTDN: Dual-task De-raining Network
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/2008.09326.pdf" target="_blank" rel="noopener">ACM MM'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/long-username/DTDN-DTDN-Dual-task-De-raining-Network" target="_blank" rel="noopener">DTDN Code</a>
+  </p>
+ </div>
+</div>     
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Gradual Network for Single Image De-raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/1909.09677.pdf" target="_blank" rel="noopener">ACM MM'19</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Single Image Deraining via Recurrent Hierarchy Enhancement Network
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://www.researchgate.net/profile/Youzhao-Yang/publication/336713626_Single_Image_Deraining_via_Recurrent_Hierarchy_Enhancement_Network/links/5e7d8286a6fdcc139c08f1a8/Single-Image-Deraining-via-Recurrent-Hierarchy-Enhancement-Network.pdf" target="_blank" rel="noopener">ACM MM'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/nnUyi/ReHEN" target="_blank" rel="noopener">ReHEN Code</a>
+  </p>
+ </div>
+</div>  
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Singe Image Rain Removal with Unpaired Information: A Differentiable Programming Perspective
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ojs.aaai.org/index.php/AAAI/article/view/4971/4844" target="_blank" rel="noopener">AAAI'19</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Image De-raining Using a Conditional Generative Adversarial Network
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/8727938/" target="_blank" rel="noopener">TCSVT'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/hezhangsprinter/ID-CGAN" target="_blank" rel="noopener">ID-CGAN Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Lightweight Pyramid Networks for Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/8767931" target="_blank" rel="noopener">TNNLS'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/projects/LPNet.html" target="_blank" rel="noopener">LPNet Code</a>
+  </p>
+ </div>
+</div>     
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Joint Rain Detection and Removal from a Single Image with Contextualized Deep Networks
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/8627954" target="_blank" rel="noopener">TPAMI'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/flyywh/JORDER-E-Deep-Image-Deraining-TPAMI-2019-Journal" target="_blank" rel="noopener">JORDER-E Code</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2019">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Gated Context Aggregation Network for Image Dehazing and Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/1811.08747.pdf" target="_blank" rel="noopener">WACV'19</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/cddlyf/GCANet" target="_blank" rel="noopener">GCANet Code</a>
+  </p>
+ </div>
+</div>     
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2018">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Density-aware Single Image De-raining using a Multi-stream Dense Network
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/1802.07412" target="_blank" rel="noopener">CVPR'18</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/hezhangsprinter/DID-MDN" target="_blank" rel="noopener">DID-MDN Code</a>
+  </p>
+ </div>
+</div>   
+ 
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2018">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Attentive Generative Adversarial Network for Raindrop Removal from a Single Image
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/1711.10098" target="_blank" rel="noopener">CVPR'18</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/rui1996/DeRaindrop" target="_blank" rel="noopener">DeRaindrop Code</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2018">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Learning Dual Convolutional Neural Networks for Low-Level Vision
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://faculty.ucmerced.edu/mhyang/papers/cvpr2018_dual_cnn.pdf" target="_blank" rel="noopener">CVPR'18</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/jspan/dualcnn" target="_blank" rel="noopener">DualCNN Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2018">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Recurrent Squeeze-and-Excitation Context Aggregation Net for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/1807.05698.pdf" target="_blank" rel="noopener">ECCV'18</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xialipku.github.io/RESCAN/" target="_blank" rel="noopener">RESCAN Code</a>
+  </p>
+ </div>
+</div>     
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2018">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+   Residual-Guide Network for Single Image Deraining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/abs/1804.07493" target="_blank" rel="noopener">ACM MM'18</a>
+  </p>
+ </div>
+</div>   
+
+ <div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2018">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Non-locally Enhanced Encoder-Decoder Network for Single Image De-raining
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/1808.01491.pdf" target="_blank" rel="noopener">ACM MM'18</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/AlexHex7/NLEDN" target="_blank" rel="noopener">NLEDN Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2017">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Clearing the Skies: A Deep Network Architecture for Single-Image Rain Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/7893758" target="_blank" rel="noopener">TIP'17</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/projects/tip2017.html" target="_blank" rel="noopener">DerainNet Code</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2017">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Removing Rain from Single Images via a Deep Detail Network
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Fu_Removing_Rain_From_CVPR_2017_paper.pdf" target="_blank" rel="noopener">CVPR'17</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://xueyangfu.github.io/projects/cvpr2017.html" target="_blank" rel="noopener">DDN Code</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2017">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Deep Joint Rain Detection and Removal from a Single Image
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Yang_Deep_Joint_Rain_CVPR_2017_paper.pdf" target="_blank" rel="noopener">CVPR'17</a>
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html" target="_blank" rel="noopener">JORDER Code</a>
+  </p>
+ </div>
+</div> 
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2017">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Joint Bi-layer Optimization for Single-image Rain Streak Removal
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_ICCV_2017/papers/Zhu_Joint_Bi-Layer_Optimization_ICCV_2017_paper.pdf" target="_blank" rel="noopener">ICCV'17</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-2017">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Joint Convolutional Analysis and Synthesis Sparse Representation for Single Image Layer Separation
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openaccess.thecvf.com/content_ICCV_2017/papers/Gu_Joint_Convolutional_Analysis_ICCV_2017_paper.pdf" target="_blank" rel="noopener">ICCV'17</a>
+  </p>
+ </div>
+</div> 
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-2017">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    A Hierarchical Approach for Rain or Snow Removing in a Single Color Image
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ieeexplore.ieee.org/abstract/document/7934435" target="_blank" rel="noopener">TIP'17</a>
+  </p>
+ </div>
+</div>  
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-before">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Rain Streak Removal Using Layer Priors
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://ieeexplore.ieee.org/document/7410745/" target="_blank" rel="noopener">CVPR'16</a>
+  </p>
+ </div>
+</div>   
+
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-before">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Removing Rain from A Single Image via Discriminative Sparse Coding
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://ieeexplore.ieee.org/document/7410745/" target="_blank" rel="noopener">ICCV'15</a>
+  </p>
+ </div>
+</div>   
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-1 year-before">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Restoring An Image Taken Through a Window Covered with Dirt or Rain
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://dl.acm.org/doi/10.1109/ICCV.2013.84" target="_blank" rel="noopener">ICCV'13</a>
+  </p>
+ </div>
+</div>    
+  
+<div class="grid-sizer col-lg-12 isotope-item pubtype-2 year-before">
+ <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+   <span class="article-metadata li-cite-author">
+   <span >
+    Automatic Single-Image-Based Rain Streaks Removal via Image Decomposition
+   </span>
+  <p> 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="http://www.ee.nthu.edu.tw/cwlin/Rain_Removal/tip_rain_removal_2011.pdf" target="_blank" rel="noopener">TIP'12</a>
+  </p>
+ </div>
+</div>   
+  
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+
+<!--   
+  <p class="powered-by copyright-license-text">
+    © 2023 NeonLeexiang. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p> -->
+
+
+  <!-- <p class="powered-by">
+    
+
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p> -->
+
+
+ </footer>
+
+    </div>
+    
+  </div> 
+<!-- 搜索和暗夜模式 -->
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+  
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+</body>
 </html>
-
